@@ -1,0 +1,12 @@
+
+This file sets configurations for BatteryFullNofify.
+
+Warning: This may take a maximum of ("Number of alerts")*5 minutes to take effect if the battery charge is greater than or equal to "Threshold".
+
+The number of alerts shown with 5 minutes interval when battery charge goes over threshold. Recommended value is 2.
+
+Number of alerts=2
+
+The threshold at and above which notification should be generated. Recommended value is 95.
+
+Threshold=95

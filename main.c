@@ -6,10 +6,20 @@ int main()
 {
     FILE *read_file;
     char buffer[500], path[500], adapter_state[10];
-    int i, count = 0, no_of_alerts = 2, threshold = 95, power_percent;
+    int i, count = 0, no_of_alerts, threshold, power_percent;
 
     while(1)
     {
+
+        read_file = popen("grep 'Number of alerts' config | sed -n 2p | cut -d '=' -f2","r");
+        fgets(buffer, 500, read_file);
+        pclose(read_file);
+        no_of_alerts = atoi(buffer);
+
+        read_file = popen("grep 'Threshold' config | cut -d '=' -f2","r");
+        fgets(buffer, 500, read_file);
+        pclose(read_file);
+        threshold = atoi(buffer);
 
         read_file = popen("acpi -a | cut -d ' ' -f3","r");
         fgets(adapter_state, 10, read_file);

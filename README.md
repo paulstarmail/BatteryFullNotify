@@ -15,3 +15,7 @@ Ubuntu application that notifies when the battery is full.
    Comment: "Notifies when the battery is full"
 7. Click "Add".
 8. Restart the Computer.
+
+----Optional----
+
+Application behaviour can be changed by changing the contents of "config" file.
