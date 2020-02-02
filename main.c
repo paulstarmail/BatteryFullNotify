@@ -13,7 +13,7 @@ The number of alerts shown with 5 minutes interval when battery charge goes over
 
 /*Complete path to the PWD (Present Working Directory)*/
 
-#define PWD "/home/kite/ProgramFiles/BatteryFullNotify"  //Do not remove the quotes.
+#define PWD "<paste the output of step 3>"  //Do not remove the quotes.
 
 #include <stdio.h>
 #include <stdlib.h>
