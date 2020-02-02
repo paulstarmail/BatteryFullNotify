@@ -13,7 +13,7 @@ The number of alerts shown with 5 minutes interval when battery charge goes over
 
 /*Complete path to the PWD (Present Working Directory)*/
 
-#define PWD "<paste the output of step 3>"  //Do not remove the quotes.
+#define PWD "/home/kite/ProgramFiles/BatteryFullNotify"  //Do not remove the quotes.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,9 +27,6 @@ int main()
 
     while(1)
     {
-        sprintf(buffer, "cd %s", PWD);
-        system(buffer);
-
         read_file = popen("acpi -a | cut -d ' ' -f3","r");
         fgets(adapter_state, 10, read_file);
         pclose(read_file);
@@ -39,12 +36,12 @@ int main()
         pclose(read_file);
         power_percent = atoi(buffer);
 
-        if(strcmp(adapter_state, "off-line\n") == 0 && power_percent < THRESHOLD)
+        if(strcmp(adapter_state, "off-line\n") == 0 || power_percent < THRESHOLD)
         {
             count = 0;
         }
 
-        while(count++ < NO_OF_ALERTS && strcmp(adapter_state, "on-line\n") == 0 && power_percent >= THRESHOLD)
+        while(count < NO_OF_ALERTS && strcmp(adapter_state, "on-line\n") == 0 && power_percent >= THRESHOLD)
         {
             sprintf(buffer, "notify-send -u critical -i '%s/battery-full.png' 'Battery Full' 'Level: %d%%'", PWD, power_percent);
             system(buffer);
@@ -61,6 +58,8 @@ int main()
             fgets(buffer, 500, read_file);
             pclose(read_file);
             power_percent = atoi(buffer);
+
+            count++;
         }
     }
     return 0;
