@@ -7,7 +7,8 @@ Ubuntu application that notifies when the battery is full.
 1. Open Terminal in the directory.
 2. Install by running "sudo apt-get install acpi" in Terminal.
 3. Run "pwd" and copy the output.
-4. Open "main.c" file in text editor and set "#define PWD <paste the output of step 3>".
+4. Open "main.c" file in text editor and set "#define PWD "<paste the output of step 3>"".
+   Do not remove the inner double quotes.
 5. Run "gcc main.c -o BatteryFullNotify".
 6. Run "gnome-session-properties".
 7. Click "Add" and fill in with the following details.
