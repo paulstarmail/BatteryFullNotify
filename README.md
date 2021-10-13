@@ -1,6 +1,6 @@
 # BatteryFullNotify
 
-Ubuntu application that notifies when the battery is full.
+ubuntu application that notifies when the battery is full.
 
 ----Instructions to Install----
 
