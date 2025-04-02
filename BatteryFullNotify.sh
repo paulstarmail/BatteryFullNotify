@@ -25,4 +25,3 @@ while true; do
   # Wait for 60 seconds before checking again
   sleep 60
 done
-
