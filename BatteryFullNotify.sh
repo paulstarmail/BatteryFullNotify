@@ -12,6 +12,7 @@ while true; do
   if [ "$battery_percentage" -ge 90 ] && [ "$alert_sent" = false ]; then
     # Send a critical notification
 	notify-send --urgency=critical --expire-time=0 "Battery Alert" "Battery is at $battery_percentage%. Please unplug the charger."
+	espeak "Battery almost full."
 
     # Set the flag to true to prevent multiple alerts
     alert_sent=true
